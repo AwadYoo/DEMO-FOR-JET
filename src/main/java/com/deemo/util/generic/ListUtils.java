@@ -3,7 +3,8 @@ package com.deemo.util.generic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericTest {
+
+public class ListUtils {
 
     public static <T> List<List<T>> splitList(List<T> list, int len) {
 
@@ -18,4 +19,6 @@ public class GenericTest {
         }
         return result;
     }
+
 }
+

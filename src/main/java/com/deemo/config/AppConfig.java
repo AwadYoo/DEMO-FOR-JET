@@ -1,11 +1,15 @@
 package com.deemo.config;
 
+import com.hazelcast.config.*;
+import com.hazelcast.core.Hazelcast;
+import com.hazelcast.core.HazelcastInstance;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -19,7 +23,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableAsync
 @EnableCaching
+@EnableScheduling
 public class AppConfig {
+
+
+    @Bean(destroyMethod = "shutdown")
+    public HazelcastInstance hazelcastInstance() {
+
+        Config config = new Config();
+        config.setInstanceName("hazelcast-instance")
+                .setGroupConfig(config.getGroupConfig()
+                        .setName("dev")
+                        .setPassword("dev-pass"));
+        return Hazelcast.newHazelcastInstance(config);
+    }
+
     @Bean
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager("cacheName");
