@@ -2,12 +2,10 @@ package com.demo.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.demo.mq.Produce;
 import com.demo.repo.BuildingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
@@ -29,6 +27,16 @@ public class Controller {
         JSONArray array = JSONArray.parseArray(str);
         return array;
     }
+
+    @Autowired
+    private Produce produce;
+
+    @GetMapping("/msg/{msg}")
+    public String sendMsgMq(@PathVariable String msg) {
+        produce.sendMsg("test.queen", msg);
+        return msg;
+    }
+
 //
 //    @GetMapping("/")
 //    public ModelAndView test1() {
