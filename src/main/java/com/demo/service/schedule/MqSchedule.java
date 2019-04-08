@@ -17,20 +17,20 @@ import org.springframework.stereotype.Component;
 public class MqSchedule {
 
 
+    String msg = "{ \"specclass\": \"HVAC\", \"assetnum\": \"P010910_0027\", \"assetdescription\": \"X401YL新风机组\", \"assetattrid\": \"status_damper_oa\", \"assetattrdescription\": \"新风阀反馈\", \"measureunitid\": \"—\", \"measurevalue\": \"0\", \"measurevaluedescription\": \"关闭\" }";
+
     @Autowired
     private Produce produce;
 
-    @Scheduled(fixedRate = 1000)
-    public void MqSendMsg() {
-        produce.sendMsg("test.queen", "这是一个 每一秒 定时发送的消息测试：" + Math.random());
-        log.info("定时一秒的消息正在发送。。。");
-    }
+    //@Scheduled(fixedRate = 1000)
+    //public void MqSendMsg() {
+    //    produce.sendMsg("test.queen", "这是一个 每一秒 定时发送的消息测试：" + Math.random());
+    //    log.info("定时一秒的消息正在发送。。。");
+    //}
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void MqSendMsg2() {
-        produce.sendMsg("test.queen", "这是一个 cron表达式 定时发送的消息测试：" + Math.random());
-        log.info("cron表达式 消息正在发送。。。");
+        produce.sendMsg("test.queen", msg);
     }
-
-
 }
+

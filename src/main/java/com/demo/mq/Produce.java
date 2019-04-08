@@ -18,7 +18,6 @@ public class Produce {
     private JmsMessagingTemplate jmsTemplate;
 
     public void sendMsg(String destination, final String msg) {
-        System.out.println("========发送queen消息" + msg);
         Destination des = new ActiveMQQueue(destination);
         jmsTemplate.convertAndSend(des, msg);
     }
