@@ -7,10 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 /**
- * @author awad_yoo
- * @create 2019-04-29 14:09
+ *　　　　　　　 ┏┓　 ┏┓+ +
+ *　　　　　　　┏┛┻━━━┛┻┓ + +
+ *　　　　　　　┃　　　　　　┃ 　
+ *　　　　　　　┃　　　━　　 ┃ ++ + + +
+ *　　　　　　 ████━████  ┃+
+ *　　　　　　　┃　　　　　　　┃ +
+ *　　　　　　　┃　　　┻　　　┃
+ *　　　　　　　┃　　　　　　┃ + +
+ *　　　　　　　┗━┓　　　┏━┛
+ *　　　　　　　　 ┃　　　┃　　　　　　　　　　　
+ *　　　　　　　　 ┃　　　┃ + + + +
+ *　　　　　　　　 ┃　　　┃　　　　Code is far away from bug with the animal protecting　　　　　　　
+ *　　　　　　　　 ┃　　　┃ + 　　　　神兽保佑,代码无bug　　
+ *　　　　　　　　 ┃　　　┃
+ *　　　　　　　　 ┃　　　┃　　+　　　　　　　　　
+ *　　　　　　　　 ┃　 　 ┗━━━┓ + +
+ *　　　　　　　　 ┃ 　　　　   ┣┓
+ *　　　　　　　　 ┃ 　　　　　 ┏┛
+ *　　　　　　　　 ┗┓┓┏━┳┓┏┛ + + + +
+ *　　　　　　　　  ┃┫┫ ┃┫┫
+ *　　　　　　　　  ┗┻┛ ┗┻┛+ + + +
  */
 @Service
 public class UserServiceImpl implements UserService {

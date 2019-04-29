@@ -8,6 +8,11 @@ import com.demo.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -33,6 +38,4 @@ public class UserController {
     public String add() {
         return userService.add(new User());
     }
-
-
 }
