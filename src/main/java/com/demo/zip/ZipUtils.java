@@ -29,7 +29,11 @@ public class ZipUtils {
         zos.putNextEntry(new ZipEntry("xx/"));
         //再往压缩包中压缩一个视频文件 （压缩一个文件，会自动创建中间目录）
         ZipEntry zipEntry = new ZipEntry("ssr/牛客网视频/chapter1/1.mp4");
+        ZipEntry zipEntry1 = new ZipEntry("ssr/牛客网视频/2.mp4");
+        ZipEntry zipEntry2 = new ZipEntry("ssr/牛客网视频/3.mp4");
         zos.putNextEntry(zipEntry);
+        zos.putNextEntry(zipEntry1);
+        zos.putNextEntry(zipEntry2);
         FileInputStream fis = null;
         try {
             fis = new FileInputStream("C:\\Users\\chenny\\Desktop\\高级-01.mp4");
@@ -93,5 +97,15 @@ public class ZipUtils {
             }
 
         }
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            createZipDemo("D:\\360Downloads", "D:\\kate.zip");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

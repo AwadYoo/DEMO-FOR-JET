@@ -1,6 +1,7 @@
 package com.demo.annotation;
 
 import com.demo.annotation.testModel.User;
+import org.springframework.context.expression.MapAccessor;
 
 import java.lang.reflect.Method;
 
@@ -26,4 +27,11 @@ public class UserFactory {
         return user;
     }
 
+
+
+    public void inits(){
+
+        System.out.println(MapAccessor.AASTORE);
+
+    }
 }
